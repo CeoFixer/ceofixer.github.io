@@ -2,7 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" id="vpMeta">
+<script>
+// Phones get a scaled-down copy of the desktop layout instead of a reflowed mobile one:
+// fixing the layout viewport at 1100px makes the browser shrink the full design to fit,
+// text wraps exactly like on desktop, pinch-zoom stays available.
+if (Math.min(screen.width, screen.height) < 761) {
+  document.getElementById('vpMeta').setAttribute('content', 'width=1100, viewport-fit=cover');
+}
+</script>
 <title>Sergii Tkachenko — Director File / T21</title>
 <meta name="description" content="Sergii Tkachenko — film director, cinematographer, AI content director. Bay Area, SF.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +33,7 @@
   --ease:cubic-bezier(.16,1,.3,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;background:#12110d}
+html{scroll-behavior:smooth;background:#12110d;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 html{
   background-color:#efe9da;
   background-image:
